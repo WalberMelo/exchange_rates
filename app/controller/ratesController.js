@@ -32,9 +32,8 @@ async function getApiRates(req, res) {
 
       /* 2) Stores the result in data base */
       insertRatesToDataBase(rateObj);
-      console.log('Rates inserted in database');
     }
-    //get api rates render to index page
+    console.log('Rates inserted in database');
     res.render('index');
   } catch (error) {
     console.log(error);
