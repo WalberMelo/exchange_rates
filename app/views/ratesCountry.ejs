@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        font-family: Poppins, Sans-serif;
+        font-size: 1em;
+      }
+      .container {
+        background-image: linear-gradient(
+          to right bottom,
+          #a831af,
+          #c32e9a,
+          #d53686,
+          #de4774,
+          #e25a66
+        );
+        color: #ffffff;
+        height: 100vh;
+        position: relative;
+      }
+
+      img {
+        position: absolute;
+        top: -59px;
+        left: 27px;
+        width: 10%;
+      }
+
+      h1 {
+        display: flex;
+        justify-content: center;
+        margin-top: 4em;
+        font-size: 1.4em;
+      }
+
+      h3 {
+        display: flex;
+        justify-content: center;
+        font-size: 1em;
+      }
+      .rates_container {
+        display: flex;
+        justify-content: center;
+        height: 11%;
+        overflow: auto;
+      }
+
+      .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+
+      th {
+        top: 0;
+        position: sticky;
+        background-color: #ffffff;
+        min-height: fit-content;
+      }
+
+      thead tr {
+        background-color: #ffffff;
+        color: #a831af;
+        font-size: 1.2em;
+        text-transform: uppercase;
+      }
+
+      .styled-table th,
+      .styled-table td {
+        text-align: center;
+        padding: 12px 15px;
+      }
+
+      .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+      }
+    </style>
+    <title>parceldealz</title>
+  </head>
+  <img
+    src="https://parceldealz.com/wp-content/uploads/2021/11/logo_white.png"
+    alt="logo"
+  />
+  <body class="container">
+    <h1>Exchange Rates</h1>
+    <% let last_update = rates.last_update %>
+    <h3>Last update: <%= last_update %></h3>
+    <div class="rates_container">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="country"><%= rates.country %></td>
+            <td class="rate"><%= rates.rate %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

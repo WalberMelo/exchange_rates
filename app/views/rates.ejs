@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        font-family: Poppins, Sans-serif;
+        font-size: 1em;
+      }
+      .container {
+        background-image: linear-gradient(
+          to right bottom,
+          #a831af,
+          #c32e9a,
+          #d53686,
+          #de4774,
+          #e25a66
+        );
+        color: #ffffff;
+        height: 100vh;
+        position: relative;
+      }
+
+      img {
+        position: absolute;
+        top: -59px;
+        left: 27px;
+        width: 10%;
+      }
+
+      h1 {
+        display: flex;
+        justify-content: center;
+        margin-top: 4em;
+        font-size: 1.4em;
+      }
+
+      h3 {
+        display: flex;
+        justify-content: center;
+        font-size: 1em;
+      }
+      .rates_container {
+        display: flex;
+        justify-content: center;
+        height: 65%;
+        overflow: auto;
+      }
+
+      .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+
+      th {
+        top: 0;
+        position: sticky;
+        background-color: #ffffff;
+        min-height: fit-content;
+      }
+
+      thead tr {
+        background-color: #ffffff;
+        color: #a831af;
+        font-size: 1.2em;
+        text-transform: uppercase;
+      }
+
+      .styled-table th,
+      .styled-table td {
+        text-align: center;
+        padding: 12px 15px;
+      }
+
+      .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+      }
+
+      tbody tr:hover {
+        color: #a831af;
+        background-color: #ffffff;
+        font-weight: 600;
+      }
+
+      .rates_country {
+        margin: 0 auto;
+        width: 40%;
+      }
+
+      form {
+        padding: 1em;
+        height: 90px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        position: relative;
+        transition: all 0.2s ease-in-out;
+      }
+
+      input {
+        padding: 0.2em;
+        border-radius: 4px;
+        color: #a831af;
+        border: none;
+        font-family: Poppins, Sans-serif;
+      }
+
+      .btn-submit {
+        padding: 0.8em 2em;
+        color: #ffffff;
+        background-color: #7a26ae;
+        cursor: pointer;
+        border-radius: 10px;
+        margin-left: 8px;
+      }
+    </style>
+    <title>parceldealz</title>
+  </head>
+  <img
+    src="https://parceldealz.com/wp-content/uploads/2021/11/logo_white.png"
+    alt="logo"
+  />
+  <body class="container">
+    <h1>Exchange Rates</h1>
+    <div class="rates_country">
+      <form action="/rates/country" method="post">
+        <p>Type a country</p>
+        <input type="text" name="country" placeholder="GER" value="" />
+        <input class="btn-submit" type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <% let last_update = rates[0].last_update %>
+    <h3>Last update: <%= last_update %></h3>
+    <div class="rates_container">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Rate</th>
+          </tr>
+        </thead>
+        <% if (rates.length > 0) { %> <% for(const { country, rate} of rates) {
+        %>
+        <tbody>
+          <tr>
+            <td class="country" onclick="location.href + this.innerHTML">
+              <%= country %>
+            </td>
+            <td class="rate"><%= rate %></td>
+            <% } %>
+          </tr>
+        </tbody>
+        <% } %>
+      </table>
+    </div>
+  </body>
+</html>
