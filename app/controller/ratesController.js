@@ -1,6 +1,6 @@
-const axios = require('axios');
-const Rates = require('../model/Rates.js');
-const removeTimezone = require('../utils/lib/functions.js');
+const axios = require("axios");
+const Rates = require("../model/Rates.js");
+const removeTimezone = require("../utils/lib/functions.js");
 
 async function insertRatesToDataBase(rateObj) {
   try {
@@ -13,8 +13,8 @@ async function insertRatesToDataBase(rateObj) {
 async function getApiRates(req, res) {
   try {
     /* 1) Get currency rates from API */
-    const response = await axios.get('https://open.er-api.com/v6/latest');
-    if (!response.data) throw new Error('Problem getting price rates data');
+    const response = await axios.get("https://open.er-api.com/v6/latest");
+    if (!response.data) throw new Error("Problem getting price rates data");
 
     const rates = await response.data.rates;
 
@@ -33,8 +33,8 @@ async function getApiRates(req, res) {
       /* 2) Stores the result in data base */
       insertRatesToDataBase(rateObj);
     }
-    console.log('Rates inserted in database');
-    res.render('index');
+    console.log("Rates inserted in database");
+    res.render("index");
   } catch (error) {
     console.log(error);
     res.status(500).send(`Something went wrong! ${error.message}`);
@@ -45,7 +45,7 @@ async function getAllRates(req, res) {
   try {
     const allRates = await Rates.findAll();
     // res.send(allRates);
-    res.render('rates', { rates: allRates });
+    res.render("rates", { rates: allRates });
   } catch (err) {
     console.log(err);
   }
@@ -62,7 +62,7 @@ async function getCountryRates(req, res) {
 
     // res.send(countryRate);
     if (countryRate === null) return;
-    res.render('ratesCountry', { rates: countryRate });
+    res.render("ratesCountry", { rates: countryRate });
   } catch (err) {
     console.log(err);
   }

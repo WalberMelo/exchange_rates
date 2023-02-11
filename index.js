@@ -2,11 +2,9 @@ const express = require("express");
 const app = express();
 const HTTP_Port = 4000;
 
-//DB init
-const sequelize = require("./database");
-sequelize
-  .sync()
-  .then(() => console.log("Data base created."));
+//DB create
+// const sequelize = require("./database");
+// sequelize.sync().then(() => console.log("Data base created."));
 
 //register ejs view engine
 app.set("view engine", "ejs");
