@@ -4,7 +4,9 @@ const HTTP_Port = 4000;
 
 //DB init
 const sequelize = require("./database");
-sequelize.sync({ force: true }).then(() => console.log("Data base created. Run node index.js"));
+sequelize
+  .sync()
+  .then(() => console.log("Data base created. Run node index.js"));
 
 //register ejs view engine
 app.set("view engine", "ejs");

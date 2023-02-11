@@ -53,7 +53,6 @@ async function getAllRates(req, res) {
 }
 
 async function getCountryRates(req, res) {
-  console.log(req.body);
   const { country } = req.body;
   const requestedCountry = country.toUpperCase().trim();
 

@@ -104,6 +104,11 @@
         transition: all 0.2s ease-in-out;
       }
 
+      p,
+      button {
+        font-family: Poppins, Sans-serif;
+      }
+
       input {
         padding: 0.2em;
         border-radius: 4px;
@@ -131,8 +136,8 @@
     <h1>Exchange Rates</h1>
     <div class="rates_country">
       <form action="/rates/country" method="post">
-        <p>Type a country</p>
-        <input type="text" name="country" placeholder="GER" value="" />
+        <p>Type a country code</p>
+        <input type="text" name="country" placeholder="EUR" value="" />
         <input class="btn-submit" type="submit" value="Submit" />
       </form>
     </div>
