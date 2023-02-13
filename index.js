@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const HTTP_Port = 4000;
+//const HTTP_Port = 4000;
 
 //DB create
 const sequelize = require("./database");
@@ -27,4 +27,4 @@ app.listen(HTTP_Port, () => {
   console.log(`Server is running Port http://localhost:${HTTP_Port}`);
 });
 
-//app.listen();
+app.listen();
