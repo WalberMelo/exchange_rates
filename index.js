@@ -23,8 +23,8 @@ app.use((req, res) => {
   res.status(404).render("404", { title: "404 page not found" });
 });
 
-app.listen(HTTP_Port, () => {
-  console.log(`Server is running Port http://localhost:${HTTP_Port}`);
-});
+// app.listen(HTTP_Port, () => {
+//   console.log(`Server is running Port http://localhost:${HTTP_Port}`);
+// });
 
 app.listen();
